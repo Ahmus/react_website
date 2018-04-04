@@ -2,6 +2,7 @@
   "name": "react_website",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Ahmus.github.io/react_website/",
   "dependencies": {
     "material-ui": "^0.20.0",
     "react": "^16.3.0",
@@ -12,6 +13,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   }
 }

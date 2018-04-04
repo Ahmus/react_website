@@ -227,13 +227,15 @@ class App extends Component {
       station: newValue,
       keys: 10,
     });
-
     /*
     Haetaan silmukan avulla haettua nimeä vastaava lyhenne.
     */
     for(var i = 0; i < this.state.stations.length; i++){
-      if((this.state.stations[i].stationName.split(" ").length === 2 && this.state.stations[i].stationName.split(" ")[0] === newValue && this.state.stations[i].stationName.split(" ")[1] === "asema") ||
-        (this.state.stations[i].stationName.split(" ").length === 1 && this.state.stations[i].stationName === newValue)){
+      /*
+      Muutetaan arvot pienellä kirjoitettavaksi niin ei tarvitse olla haussa iso ensimmäinen kirjain.
+      */
+      if((this.state.stations[i].stationName.split(" ").length === 2 && this.state.stations[i].stationName.split(" ")[0].toLowerCase() === newValue.toLowerCase() && this.state.stations[i].stationName.split(" ")[1] === "asema") ||
+        (this.state.stations[i].stationName.split(" ").length === 1 && this.state.stations[i].stationName.toLowerCase() === newValue.toLowerCase())){
         /*
         this.setState oli tässä liian hidas muuttamaan arvoa shortCode. Eli shortCode ei kerinnyt päivittyä ennen kuin componentDidMount
         functio sitä tarvitsi ja ohjelma kaatui siihe.
