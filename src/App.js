@@ -88,17 +88,17 @@ class App extends Component {
       if(t.timeTableRows[i].stationShortCode === this.state.shortCode){
         if((t.timeTableRows[i].differenceInMinutes === 0 || !t.timeTableRows[i].liveEstimateTime) && (t.timeTableRows[i].cancelled === false) && (t.timeTableRows[i].type === type)){
           var date = new Date(t.timeTableRows[i].scheduledTime)
-          return ('0' + date.getUTCHours()).slice(-2) + ":" + ('0' + date.getUTCMinutes()).slice(-2);
+          return ('0' + date.getHours()).slice(-2) + ":" + ('0' + date.getMinutes()).slice(-2);
         }
         else if(t.timeTableRows[i].liveEstimateTime && t.timeTableRows[i].cancelled === false && t.timeTableRows[i].type === type){
           var dateL = new Date(t.timeTableRows[i].liveEstimateTime)
           var dateS = new Date(t.timeTableRows[i].scheduledTime)
-          return ('0' + dateL.getUTCHours()).slice(-2) + ":" + ('0' + dateL.getUTCMinutes()).slice(-2) +
-          " (" + ('0' + dateS.getUTCHours()).slice(-2) + ":" + ('0' + dateS.getUTCMinutes()).slice(-2) + ")";
+          return ('0' + dateL.getHours()).slice(-2) + ":" + ('0' + dateL.getMinutes()).slice(-2) +
+          " (" + ('0' + dateS.getHours()).slice(-2) + ":" + ('0' + dateS.getMinutes()).slice(-2) + ")";
         }
         else if(t.timeTableRows[i].cancelled === true && (t.timeTableRows[i].type === type)){
           var dateC = new Date(t.timeTableRows[i].scheduledTime)
-          return ('0' + dateC.getUTCHours()).slice(-2) + ":" + ('0' + dateC.getUTCMinutes()).slice(-2) + " Cancelled";
+          return ('0' + dateC.getHours()).slice(-2) + ":" + ('0' + dateC.getMinutes()).slice(-2) + " Cancelled";
         }
       }
     }
