@@ -146,20 +146,20 @@ class App extends Component {
         let trainA = dataA.map((trainA) => {
           return(
             <TableRow key={this.getKey()} style={{color: trainA.cancelled ? '#B0B0B0' : '#000000'}}>
-                <TableRowColumn style={{backgroundColor: this.state.keys % 2 === 0? '#FFFFFF' : '#E0E0E0'}}>
+                <TableRowColumn>
                   {this.getTrain(trainA)}
                 </TableRowColumn>
-                <TableRowColumn style={{backgroundColor: this.state.keys % 2 === 0? '#FFFFFF' : '#E0E0E0'}}>
+                <TableRowColumn>
                   {this.getStation(trainA.timeTableRows[0].stationShortCode)}
                 </TableRowColumn>
-                <TableRowColumn style={{backgroundColor: this.state.keys % 2 === 0? '#FFFFFF' : '#E0E0E0'}}>
+                <TableRowColumn>
                   {this.getStation(trainA.timeTableRows[trainA.timeTableRows.length - 1].stationShortCode)}
                 </TableRowColumn>
-                <TableRowColumn style={{backgroundColor: this.state.keys % 2 === 0? '#FFFFFF' : '#E0E0E0'}}>
+                <TableRowColumn>
                   <p style={{color: this.getTime(trainA, "ARRIVAL").split(" ").length === 2 && !trainA.cancelled ? '#FF0000' : trainA.cancelled ? '#B0B0B0' : '#000000'}}>
                     {this.getTime(trainA, "ARRIVAL").split(" ")[0]}
                   </p>
-                  <p style={{color: trainA.cancelled ? '#FF0000' : '#000000', fontSize: trainA.cancelled ? 13 : 11, backgroundColor: this.state.keys % 2 === 0? '#FFFFFF' : '#E0E0E0'}}>
+                  <p style={{color: trainA.cancelled ? '#FF0000' : '#000000', fontSize: trainA.cancelled ? 13 : 11}}>
                     {this.getTime(trainA, "ARRIVAL").split(" ")[1]}
                   </p>
                 </TableRowColumn>
@@ -190,16 +190,16 @@ class App extends Component {
           let trainD = dataD.map((trainD) => {
             return(
               <TableRow key={this.getKey()} style={{color: trainD.cancelled ? '#B0B0B0' : '#000000'}}>
-                  <TableRowColumn style={{backgroundColor: this.state.keys % 2 === 0? '#FFFFFF' : '#E0E0E0'}}>
+                  <TableRowColumn>
                     {this.getTrain(trainD)}
                   </TableRowColumn>
-                  <TableRowColumn style={{backgroundColor: this.state.keys % 2 === 0? '#FFFFFF' : '#E0E0E0'}}>
+                  <TableRowColumn>
                     {this.getStation(trainD.timeTableRows[0].stationShortCode)}
                   </TableRowColumn >
-                  <TableRowColumn style={{backgroundColor: this.state.keys % 2 === 0? '#FFFFFF' : '#E0E0E0'}}>
+                  <TableRowColumn>
                     {this.getStation(trainD.timeTableRows[trainD.timeTableRows.length - 1].stationShortCode)}
                   </TableRowColumn>
-                  <TableRowColumn style={{backgroundColor: this.state.keys % 2 === 0? '#FFFFFF' : '#E0E0E0'}}>
+                  <TableRowColumn>
                     <p style={{color: this.getTime(trainD, "DEPARTURE").split(" ").length === 2 && !trainD.cancelled ? '#FF0000' : trainD.cancelled ? '#B0B0B0' : '#000000'}}>
                       {this.getTime(trainD, "DEPARTURE").split(" ")[0]}
                     </p>
@@ -304,7 +304,7 @@ class App extends Component {
                       <TableHeaderColumn>Saapuu</TableHeaderColumn>
                     </TableRow>
                   </TableHeader>
-                  <TableBody displayRowCheckbox={this.state.showCheckboxes}>
+                  <TableBody stripedRows={true} displayRowCheckbox={this.state.showCheckboxes}>
                     {this.state.trainArrival}
                   </TableBody>
                 </Table>
@@ -319,7 +319,7 @@ class App extends Component {
                       <TableHeaderColumn>Lähtee</TableHeaderColumn>
                     </TableRow>
                   </TableHeader>
-                  <TableBody displayRowCheckbox={this.state.showCheckboxes}>
+                  <TableBody stripedRows={true} displayRowCheckbox={this.state.showCheckboxes}>
                     {this.state.trainDepature}
                   </TableBody>
                 </Table>
