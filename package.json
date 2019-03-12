@@ -5,6 +5,7 @@
   "homepage": "https://Ahmus.github.io/react_website/",
   "dependencies": {
     "material-ui": "^0.20.0",
+    "npm": "^6.9.0",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-scripts": "1.1.3"
