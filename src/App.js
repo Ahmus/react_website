@@ -131,9 +131,16 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log("Initial start")
     /*
     Haetaan saapuvat junat.
     */
+    this.getData();
+    setInterval(this.getData, 60000);
+  }
+  
+  getData = () => {
+    console.log("Load station data");
     fetch('https://rata.digitraffic.fi/api/v1/live-trains/station/' + this.state.shortCode + '?arrived_trains=0&arriving_trains=10&departed_trains=0&departing_trains=0&include_nonstopping=false')
       .then(responseA => {
         if(!responseA.ok) {
@@ -242,7 +249,7 @@ class App extends Component {
         */
         // eslint-disable-next-line
         this.state.shortCode = this.state.stations[i].stationShortCode;
-        this.componentDidMount()
+        this.getData()
       }
     }
   }
